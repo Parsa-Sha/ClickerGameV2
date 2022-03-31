@@ -7,10 +7,15 @@ class Target {
 
   Target() {
     size = 300;
-    vel.x = random(-2, 2);
-    vel.y = random(-2, 2);
+    pos = new PVector(width/2, height/2);
+    vel = new PVector(random(-2, 2), random(-2, 2));
   }
-
+  
+  Target(int s, float x, float y) {
+    size = s;
+    pos = new PVector(x, y);
+    vel = new PVector(random(-2, 2), random(-2, 2));
+  }
 
   void show() {
     ellipse(pos.x, pos.y, size, size);
