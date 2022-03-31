@@ -27,6 +27,13 @@ int score, highscore, lives;
 
 float difficultySlider = 5;
 
+
+float sizeLimit = 15;
+
+ArrayList<Target> myTargets;
+int targetCount = 0;
+
+
 void setup() {
   size(800, 800);
   mode = INTRO;
