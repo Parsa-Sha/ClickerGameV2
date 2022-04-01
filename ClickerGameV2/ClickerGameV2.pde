@@ -23,7 +23,7 @@ final int OPTIONS = 4;
 float x, y, d;
 float vx, vy;
 
-int score, highscore, lives;
+int score, highscore, playerLives;
 
 float difficultySlider = 5;
 
@@ -31,8 +31,7 @@ float difficultySlider = 5;
 float sizeLimit = 15;
 
 ArrayList<Target> myTargets;
-int targetCount = 0;
-
+int targetCount = 1;
 
 void setup() {
   size(800, 800);
@@ -50,13 +49,16 @@ void setup() {
   vy = random(-5, 5);
 
   score = 0;
-  lives = 3;
+  playerLives = 3;
 
   minim = new Minim(this);
   theme = minim.loadFile("audioFiles\\mario bros theme.mp3");
   coin = minim.loadFile("audioFiles\\coin.wav");
   bump = minim.loadFile("audioFiles\\bump.wav");
   gameover = minim.loadFile("audioFiles\\gameover.wav");  
+  
+  myTargets = new ArrayList<Target>();
+  myTargets.add(new Target());
 }
 
 void draw() {
