@@ -18,7 +18,8 @@ final int INTRO = 0;
 final int GAME = 1;
 final int PAUSE = 2;
 final int GAMEOVER = 3;
-final int OPTIONS = 4;
+final int GAMEWON = 4;
+final int OPTIONS = 5;
 
 float x, y, d;
 float vx, vy;
@@ -27,8 +28,8 @@ int score, highscore, playerLives;
 
 float difficultySlider = 5;
 
-
-float sizeLimit = 15;
+float sizeLimit = 20;
+float clickCooldown = 0;
 
 ArrayList<Target> myTargets;
 int targetCount = 1;
@@ -74,6 +75,9 @@ void draw() {
     break;
   case GAMEOVER:
     gameover();
+    break;
+  case GAMEWON:
+    gamewon();
     break;
   case OPTIONS:
     options();
