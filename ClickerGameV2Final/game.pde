@@ -24,6 +24,10 @@ void game() {
     }
   }
   
+  if (millis() > 3000 && millis() < 3020) {
+    myTargets.add(new Target());
+  }
+  
   if (mousePressed && clickCooldown == 40) { // If mouse is pressed and cooldown is over
     mousePressed = false;
     checkClick();

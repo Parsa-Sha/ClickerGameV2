@@ -12,6 +12,18 @@
 
 // Levels?
 
+// Spawn new target when all are destroyed
+// Spawn new target every 15 sec, 13 sec, 10 sec...
+// False targets
+// Orbiting targets
+
+
+// Goal for this one:
+// Once all have been destroyed, spawn two big targets, then spawn three
+// Reset lives at each level
+// Most likely go to five, then win the game
+// Important numbers to keep track of are: lvl player died in, highest streak (potentially could be score?)
+
 
 import ddf.minim.*;
 import ddf.minim.analysis.*;
