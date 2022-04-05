@@ -20,7 +20,7 @@ void game() {
     if (myObj.lives == 0) {
       myTargets.remove(i);
     } else {
-      i++;
+      i++;  
     }
   }
   
@@ -37,7 +37,6 @@ void game() {
   rotate(-HALF_PI);
   arc(0, 0, 30, 30, 0, clickCooldown*TWO_PI/40);
   popMatrix();
-
 
   if (playerLives <= 0) {
     mode = GAMEOVER;
