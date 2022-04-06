@@ -6,7 +6,7 @@ void game() {
   background(39, 108, 111);
   textSize(40);
   textAlign(LEFT);
-  text("Targets Left: " + targetCount, 10, 40);
+  text("Score: " + targetsDestroyed, 10, 40);
   textAlign(RIGHT);
   text("Lives: " + playerLives, width - 10, 40);
   textAlign(CENTER);
@@ -24,25 +24,30 @@ void game() {
     }
   }
   
-  if (millis() > 3000 && millis() < 3020) {
+  if (millis()%3020 > 3000 && millis()%3020 <= 3020) {
     myTargets.add(new Target());
+    targetCount++;
   }
   
-  if (mousePressed && clickCooldown == 40) { // If mouse is pressed and cooldown is over
+  if (mousePressed && clickCooldown == 10) { // If mouse is pressed and cooldown is over
     mousePressed = false;
     checkClick();
     clickCooldown = 0;
   }
 
   clickCooldown++;
-  clickCooldown = min(40, clickCooldown);
+  clickCooldown = min(10, clickCooldown);
   pushMatrix();
   translate(mouseX, mouseY);
   rotate(-HALF_PI);
-  arc(0, 0, 30, 30, 0, clickCooldown*TWO_PI/40);
+  arc(0, 0, 30, 30, 0, clickCooldown*TWO_PI/10);
   popMatrix();
 
-  if (playerLives <= 0) {
+
+  highscore = max(highscore, targetsDestroyed);
+
+
+  if (playerLives <= 0 || targetCount >= 100) {
     mode = GAMEOVER;
   }
 
@@ -74,5 +79,6 @@ void checkClick() {
     playerLives--;
   } else { // Else, run break method to split target
     clickedTarget.slice();
+    targetsDestroyed++;
   }
 }

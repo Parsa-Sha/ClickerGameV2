@@ -14,7 +14,8 @@ void intro() {
   x = width/2;
   y = height/2;
   playerLives = 3;
-
+  targetsDestroyed = 0;
+  
   if (mouseX > 100 && mouseX < 300 && mouseY > 500 && mouseY < 600) {
     if (mousePressed) {
       mousePressed = false;

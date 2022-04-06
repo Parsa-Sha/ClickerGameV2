@@ -11,5 +11,5 @@ void gameover() {
   text("FAILURE", width/2, height/2);
   textSize(30);
   textLeading(30);
-  text("Score: " + score + "\n" + "Highscore: " + highscore + "\nClick to play again", width/2, height/2 +100);
+  text("Score: " + targetsDestroyed + "\n" + "Highscore: " + highscore + "\nClick to play again", width/2, height/2 +100);
 }

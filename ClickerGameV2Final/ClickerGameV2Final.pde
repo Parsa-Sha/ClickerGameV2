@@ -25,6 +25,15 @@
 // Important numbers to keep track of are: lvl player died in, highest streak (potentially could be score?)
 
 
+// Falure due to lives lost
+// Falure due to too many bubbles
+// Secret ending due to ability to pop bubbles in time
+// Black bubble game? Remove oil from sea?
+
+
+
+
+
 import ddf.minim.*;
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
@@ -53,6 +62,7 @@ float difficultySlider = 5;
 
 float sizeLimit = 20;
 float clickCooldown = 0;
+int targetsDestroyed = 0;
 
 ArrayList<Target> myTargets;
 int targetCount = 1;
