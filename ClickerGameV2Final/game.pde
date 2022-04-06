@@ -20,15 +20,16 @@ void game() {
     if (myObj.lives == 0) {
       myTargets.remove(i);
     } else {
-      i++;  
+      i++;
     }
   }
-  
-  if (millis()%3020 > 3000 && millis()%3020 <= 3020) {
+
+  if (millis() % 3020 > 3000 || gamestart == true) {
     myTargets.add(new Target());
     targetCount++;
+    gamestart = false;
   }
-  
+
   if (mousePressed && clickCooldown == 10) { // If mouse is pressed and cooldown is over
     mousePressed = false;
     checkClick();
@@ -37,6 +38,9 @@ void game() {
 
   clickCooldown++;
   clickCooldown = min(10, clickCooldown);
+  strokeWeight(3);
+  stroke(0, 0, 255);
+  noFill();
   pushMatrix();
   translate(mouseX, mouseY);
   rotate(-HALF_PI);
@@ -50,7 +54,7 @@ void game() {
   if (playerLives <= 0) {
     mode = GAMEOVER;
   }
-  
+
   if (targetCount >= 100) {
     mode = INVADED;
   }
@@ -68,7 +72,7 @@ void game() {
 
 void checkClick() {
   Target clickedTarget = null;
-  
+
   int i = 0;
   while (i < myTargets.size()) { // Check if mouse is on a target
     Target myObj = myTargets.get(i);
@@ -78,7 +82,7 @@ void checkClick() {
     }
     i++;
   }
-  
+
   if (clickedTarget == null) { // If no target is under mouse, remove lives
     playerLives--;
   } else { // Else, run break method to split target

@@ -15,7 +15,15 @@ void intro() {
   y = height/2;
   playerLives = 3;
   targetsDestroyed = 0;
-  
+  gamestart = true;
+
+  int i = 0;
+  while (i < myTargets.size()) {
+    myTargets.remove(i);
+    i++;
+  }
+
+
   if (mouseX > 100 && mouseX < 300 && mouseY > 500 && mouseY < 600) {
     if (mousePressed) {
       mousePressed = false;

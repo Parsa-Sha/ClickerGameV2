@@ -62,12 +62,13 @@ float difficultySlider = 5;
 float sizeLimit = 20;
 float clickCooldown = 0;
 int targetsDestroyed = 0;
+boolean gamestart;
 
 ArrayList<Target> myTargets;
 int targetCount = 1;
 
 void setup() {
-  size(800, 800);
+  size(800, 800, P2D);
   mode = INTRO;
   
   mario = loadImage("characters\\Mario.png");
@@ -91,7 +92,7 @@ void setup() {
   gameover = minim.loadFile("audioFiles\\gameover.wav");  
   
   myTargets = new ArrayList<Target>();
-  myTargets.add(new Target());
+  // myTargets.add(new Target());
 }
 
 void draw() {

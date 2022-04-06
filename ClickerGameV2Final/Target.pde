@@ -27,8 +27,6 @@ class Target {
     stroke(200);
     fill(0);
     ellipse(pos.x, pos.y, size, size);
-    stroke(0, 0, 255);
-    noFill();
   }
 
   void act() {
