@@ -10,8 +10,6 @@
 // Background with 8-bit hearts?
 // Red damage pulses/flash? 
 
-// Levels?
-
 // Spawn new target when all are destroyed
 // Spawn new target every 15 sec, 13 sec, 10 sec...
 // False targets
@@ -24,12 +22,6 @@
 // Goal is to pop as many bubbles as possible
 // Hidden ending where if there are no bubbles, secret ending is found
 
-
-
-// Falure due to lives lost
-// Falure due to too many bubbles
-// Secret ending due to ability to pop bubbles in time
-// Black bubble game? Remove oil from sea?
 
 
 import ddf.minim.*;
@@ -67,12 +59,21 @@ boolean gamestart;
 ArrayList<Target> myTargets;
 int targetCount = 1;
 
+PImage bgs[] = new PImage[4];
+
+
 void setup() {
   size(800, 800, P2D);
   mode = INTRO;
   
   mario = loadImage("characters\\Mario.png");
   link = loadImage("characters\\Link.png");
+  bgs[0] = loadImage("bg\\noLives.png");
+  bgs[1] = loadImage("bg\\oneLife.png");
+  bgs[2] = loadImage("bg\\twoLives.png");
+  bgs[3] = loadImage("bg\\threeLives.png");
+  
+  
   selectedImage = mario;
   imageMode(CENTER);
     

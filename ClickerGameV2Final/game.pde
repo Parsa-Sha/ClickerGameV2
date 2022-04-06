@@ -4,12 +4,6 @@ void game() {
 
   theme.play();
   background(39, 108, 111);
-  textSize(40);
-  textAlign(LEFT);
-  text("Score: " + targetsDestroyed, 10, 40);
-  textAlign(RIGHT);
-  text("Lives: " + playerLives, width - 10, 40);
-  textAlign(CENTER);
 
   int i = 0;
   while (i < myTargets.size()) {
@@ -35,7 +29,15 @@ void game() {
     checkClick();
     clickCooldown = 0;
   }
+  
+  textSize(40);
+  textAlign(LEFT);
+  text("Score: " + targetsDestroyed, 10, 40);
+  textAlign(RIGHT);
+  image(bgs[playerLives], width-130, 40);
+  textAlign(CENTER);
 
+  
   clickCooldown++;
   clickCooldown = min(10, clickCooldown);
   strokeWeight(3);
@@ -73,19 +75,18 @@ void game() {
 void checkClick() {
   Target clickedTarget = null;
 
-  int i = 0;
-  while (i < myTargets.size()) { // Check if mouse is on a target
+  int i = myTargets.size() - 1;
+  while (i > -1) { // Check if mouse is on a target
     Target myObj = myTargets.get(i);
     if (dist(mouseX, mouseY, myObj.pos.x, myObj.pos.y) < myObj.size/2) {
-      clickedTarget = myObj;
+      clickedTarget = myObj; // Check distance to the uppermost target
       break;
     }
-    i++;
+    i--;
   }
 
-  if (clickedTarget == null) { // If no target is under mouse, remove lives
-    playerLives--;
-  } else { // Else, run break method to split target
+  if (clickedTarget == null) playerLives--; // If no target is under mouse, remove lives  
+  else { // Else, run break method to split target
     clickedTarget.slice();
     targetsDestroyed++;
   }
