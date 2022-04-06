@@ -47,8 +47,12 @@ void game() {
   highscore = max(highscore, targetsDestroyed);
 
 
-  if (playerLives <= 0 || targetCount >= 100) {
+  if (playerLives <= 0) {
     mode = GAMEOVER;
+  }
+  
+  if (targetCount >= 100) {
+    mode = INVADED;
   }
 
   if (targetCount == 0) {

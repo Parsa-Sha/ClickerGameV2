@@ -17,21 +17,19 @@
 // False targets
 // Orbiting targets
 
+// This version looks like this:
+// Every three seconds, a bubble spawns
+// You must pop bubbles in time before they cover the screen
+// If too many bubbles appear, or you miss the bubbles, you lose
+// Goal is to pop as many bubbles as possible
+// Hidden ending where if there are no bubbles, secret ending is found
 
-// Goal for this one:
-// Once all have been destroyed, spawn two big targets, then spawn three
-// Reset lives at each level
-// Most likely go to five, then win the game
-// Important numbers to keep track of are: lvl player died in, highest streak (potentially could be score?)
 
 
 // Falure due to lives lost
 // Falure due to too many bubbles
 // Secret ending due to ability to pop bubbles in time
 // Black bubble game? Remove oil from sea?
-
-
-
 
 
 import ddf.minim.*;
@@ -52,6 +50,7 @@ final int PAUSE = 2;
 final int GAMEOVER = 3;
 final int GAMEWON = 4;
 final int OPTIONS = 5;
+final int INVADED = 6;
 
 float x, y, d;
 float vx, vy;
@@ -114,6 +113,9 @@ void draw() {
     break;
   case OPTIONS:
     options();
+    break;
+  case INVADED:
+    invaded();
     break;
   default:
     println("ERROR. Mode = " + mode);
