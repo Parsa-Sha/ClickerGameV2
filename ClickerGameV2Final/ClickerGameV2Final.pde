@@ -31,7 +31,7 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 Minim minim;
-AudioPlayer theme, coin, bump, gameover;
+AudioPlayer theme, coin, bump, gameover, introTheme;
 
 PImage link, mario, selectedImage;
 
@@ -60,7 +60,10 @@ ArrayList<Target> myTargets;
 int targetCount = 1;
 
 PImage bgs[] = new PImage[4];
+PImage characters[] = new PImage[3];
 
+final char secretcode[] = new char[11];
+char currentcode[] = new char[11];
 
 void setup() {
   size(800, 800, P2D);
@@ -72,7 +75,9 @@ void setup() {
   bgs[1] = loadImage("bg\\oneLife.png");
   bgs[2] = loadImage("bg\\twoLives.png");
   bgs[3] = loadImage("bg\\threeLives.png");
+  characters[0] = loadImage("characters\\SlimeCharacter.png");
   
+  secretcode[0] = 'U'; 
   
   selectedImage = mario;
   imageMode(CENTER);
@@ -87,10 +92,11 @@ void setup() {
   playerLives = 3;
 
   minim = new Minim(this);
-  theme = minim.loadFile("audioFiles\\mario bros theme.mp3");
+  theme = minim.loadFile("audioFiles\\gameTheme.mp3");
   coin = minim.loadFile("audioFiles\\coin.wav");
   bump = minim.loadFile("audioFiles\\bump.wav");
   gameover = minim.loadFile("audioFiles\\gameover.wav");  
+  introTheme = minim.loadFile("audioFiles\\IntroTheme.mp3");
   
   myTargets = new ArrayList<Target>();
   // myTargets.add(new Target());

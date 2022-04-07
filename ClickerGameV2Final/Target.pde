@@ -26,7 +26,8 @@ class Target {
     strokeWeight(3);
     stroke(200);
     fill(0);
-    ellipse(pos.x, pos.y, size, size);
+    //ellipse(pos.x, pos.y, size, size);
+    image(characters[0], pos.x, pos.y, size, size);
   }
 
   void act() {

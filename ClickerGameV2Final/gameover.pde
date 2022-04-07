@@ -1,7 +1,7 @@
 void gameover() {
   theme.pause();
-  theme.rewind();
   gameover.play();
+  introTheme.rewind();
   background(100, 0, 0);
   image(bgs[0], width/2, height/2);
   if(mousePressed){

@@ -85,9 +85,14 @@ void checkClick() {
     i--;
   }
 
-  if (clickedTarget == null) playerLives--; // If no target is under mouse, remove lives  
-  else { // Else, run break method to split target
+  if (clickedTarget == null) {  // If no target is under mouse, remove lives 
+    playerLives--; 
+    bump.rewind();
+    bump.play();
+  } else { // Else, run break method to split target
     clickedTarget.slice();
     targetsDestroyed++;
+    coin.rewind();
+    coin.play();
   }
 }

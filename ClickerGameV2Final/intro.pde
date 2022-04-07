@@ -2,8 +2,11 @@ int strokeWeightOptions, strokeWeightPlay;
 color strokeColourOptions, strokeColourPlay;
 
 void intro() {
-  gameover.pause();
   gameover.rewind();
+  theme.rewind();
+  gameover.pause();
+  theme.pause();
+  introTheme.play();
   background(200);
   fill(255);
   strokeWeightOptions = 1;
