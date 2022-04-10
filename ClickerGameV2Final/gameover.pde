@@ -3,7 +3,7 @@ void gameover() {
   gameover.play();
   introTheme.rewind();
   background(100, 0, 0);
-  image(bgs[0], width/2, height/2);
+  image(livesCounter[0], width/2, height/2);
   if(mousePressed){
     mousePressed = false;
     mode = INTRO;

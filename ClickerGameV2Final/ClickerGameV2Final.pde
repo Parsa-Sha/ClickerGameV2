@@ -59,10 +59,18 @@ boolean gamestart;
 ArrayList<Target> myTargets;
 int targetCount = 1;
 
-PImage bgs[] = new PImage[4];
+PImage livesCounter[] = new PImage[4];
 PImage characters[] = new PImage[3];
+PImage bgs[] = new PImage[3];
 
-final char secretcode[] = new char[11];
+color colour1[] = new color[3];
+color colour2[] = new color[3];
+color colour3[] = new color[3];
+int selectedPalette = 0;
+
+int themeSelection;
+
+final char secretcode[] = new char[11]; // 
 char currentcode[] = new char[11];
 
 void setup() {
@@ -71,13 +79,27 @@ void setup() {
   
   mario = loadImage("characters\\Mario.png");
   link = loadImage("characters\\Link.png");
-  bgs[0] = loadImage("bg\\noLives.png");
-  bgs[1] = loadImage("bg\\oneLife.png");
-  bgs[2] = loadImage("bg\\twoLives.png");
-  bgs[3] = loadImage("bg\\threeLives.png");
+  livesCounter[0] = loadImage("bg\\noLives.png");
+  livesCounter[1] = loadImage("bg\\oneLife.png");
+  livesCounter[2] = loadImage("bg\\twoLives.png");
+  livesCounter[3] = loadImage("bg\\threeLives.png");
   characters[0] = loadImage("characters\\SlimeCharacter.png");
   
-  secretcode[0] = 'U'; 
+  secretcode[0] = char(UP); 
+  secretcode[1] = char(UP);
+  secretcode[2] = char(DOWN);
+  secretcode[3] = char(DOWN);
+  secretcode[4] = char(LEFT);
+  secretcode[5] = char(RIGHT);
+  secretcode[6] = char(LEFT);
+  secretcode[7] = char(RIGHT);
+  secretcode[8] = 'b';
+  secretcode[9] = 'a';
+  secretcode[10] = char(ENTER);
+  
+  colour1[0] = color(14, 53, 50);
+  colour2[0] = color(56, 184, 125);
+  colour3[0] = color(35, 170, 155);
   
   selectedImage = mario;
   imageMode(CENTER);
@@ -92,11 +114,11 @@ void setup() {
   playerLives = 3;
 
   minim = new Minim(this);
-  theme = minim.loadFile("audioFiles\\gameTheme.mp3");
+  theme = minim.loadFile("audioFiles\\IntroTheme.mp3");
   coin = minim.loadFile("audioFiles\\coin.wav");
   bump = minim.loadFile("audioFiles\\bump.wav");
   gameover = minim.loadFile("audioFiles\\gameover.wav");  
-  introTheme = minim.loadFile("audioFiles\\IntroTheme.mp3");
+  introTheme = minim.loadFile("audioFiles\\gameTheme.mp3");
   
   myTargets = new ArrayList<Target>();
   // myTargets.add(new Target());

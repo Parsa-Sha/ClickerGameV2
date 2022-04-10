@@ -1,5 +1,4 @@
 int strokeWeightOptions, strokeWeightPlay;
-color strokeColourOptions, strokeColourPlay;
 
 void intro() {
   gameover.rewind();
@@ -7,12 +6,10 @@ void intro() {
   gameover.pause();
   theme.pause();
   introTheme.play();
-  background(200);
+  background(colour1[selectedPalette]);
   fill(255);
   strokeWeightOptions = 1;
-  strokeColourOptions = color(0);
   strokeWeightPlay = 1;
-  strokeColourPlay = color(0);
   score = 0;
   x = width/2;
   y = height/2;
@@ -33,7 +30,6 @@ void intro() {
       mode = GAME;
     }
     strokeWeightPlay = 5;
-    strokeColourPlay = color(0, 0, 120);
   }
 
   if (mouseX > 500 && mouseX < 700 && mouseY > 500 && mouseY < 600) {
@@ -42,21 +38,23 @@ void intro() {
       mode = OPTIONS;
     }
     strokeWeightOptions = 5;
-    strokeColourOptions = color(0, 0, 120);
   }
 
   rectMode(CORNERS);
+  
+  stroke(colour3[selectedPalette]);
+  fill(colour2[selectedPalette]);
+  
   strokeWeight(strokeWeightPlay);
-  stroke(strokeColourPlay);
   rect(100, 500, 300, 600, 20);
 
   strokeWeight(strokeWeightOptions);
-  stroke(strokeColourOptions);
   rect(500, 500, 700, 600, 20);
 
   fill(0);
   textSize(35);
   textAlign(CENTER, CENTER);
+  fill(colour3[selectedPalette]);
   text("GAME START", 200, 540);
   text("OPTIONS", 600, 540);
   textSize(70);

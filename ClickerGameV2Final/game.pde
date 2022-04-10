@@ -1,7 +1,8 @@
 int streak = 0;
 
 void game() {
-
+  introTheme.pause();
+  introTheme.rewind();
   theme.play();
   background(39, 108, 111);
 
@@ -34,7 +35,7 @@ void game() {
   textAlign(LEFT);
   text("Score: " + targetsDestroyed, 10, 40);
   textAlign(RIGHT);
-  image(bgs[playerLives], width-130, 40);
+  image(livesCounter[playerLives], width-130, 40);
   textAlign(CENTER);
 
   
