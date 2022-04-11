@@ -60,30 +60,36 @@ ArrayList<Target> myTargets;
 int targetCount = 1;
 
 PImage livesCounter[] = new PImage[4];
+
 PImage characters[] = new PImage[3];
 PImage bgs[] = new PImage[3];
-
+PImage icons[] = new PImage[3];
 color colour1[] = new color[3];
 color colour2[] = new color[3];
 color colour3[] = new color[3];
-int selectedPalette = 0;
+int selectedTheme = 0;
 
 int themeSelection;
 
-final char secretcode[] = new char[11]; // 
+final char secretcode[] = new char[11];
 char currentcode[] = new char[11];
 
 void setup() {
   size(800, 800, P2D);
   mode = INTRO;
   
-  mario = loadImage("characters\\Mario.png");
-  link = loadImage("characters\\Link.png");
   livesCounter[0] = loadImage("bg\\noLives.png");
   livesCounter[1] = loadImage("bg\\oneLife.png");
   livesCounter[2] = loadImage("bg\\twoLives.png");
   livesCounter[3] = loadImage("bg\\threeLives.png");
-  characters[0] = loadImage("characters\\SlimeCharacter.png");
+  
+  characters[0] = loadImage("characters\\grassSlime.png");
+  characters[1] = loadImage("characters\\lavaSlime.png");
+  characters[2] = loadImage("characters\\darkSlime.png");
+  
+  icons[0] = loadImage("icons\\grassIcon.png");
+  icons[1] = loadImage("icons\\lavaIcon.png");
+  icons[2] = loadImage("icons\\darkIcon.png");
   
   secretcode[0] = char(UP); 
   secretcode[1] = char(UP);
