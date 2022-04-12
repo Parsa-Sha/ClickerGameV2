@@ -6,7 +6,7 @@ void intro() {
   gameover.pause();
   theme.pause();
   introTheme.play();
-  background(colour1[selectedPalette]);
+  image(bgs[selectedTheme], width/2, height/2);
   fill(255);
   strokeWeightOptions = 1;
   strokeWeightPlay = 1;
@@ -42,8 +42,8 @@ void intro() {
 
   rectMode(CORNERS);
   
-  stroke(colour3[selectedPalette]);
-  fill(colour2[selectedPalette]);
+  stroke(colour3[selectedTheme]);
+  fill(colour2[selectedTheme]);
   
   strokeWeight(strokeWeightPlay);
   rect(100, 500, 300, 600, 20);
@@ -54,7 +54,7 @@ void intro() {
   fill(0);
   textSize(35);
   textAlign(CENTER, CENTER);
-  fill(colour3[selectedPalette]);
+  fill(colour3[selectedTheme]);
   text("GAME START", 200, 540);
   text("OPTIONS", 600, 540);
   textSize(70);

@@ -67,7 +67,7 @@ PImage icons[] = new PImage[3];
 color colour1[] = new color[3];
 color colour2[] = new color[3];
 color colour3[] = new color[3];
-int selectedTheme = 0;
+int selectedTheme = 2;
 
 int themeSelection;
 
@@ -82,6 +82,10 @@ void setup() {
   livesCounter[1] = loadImage("bg\\oneLife.png");
   livesCounter[2] = loadImage("bg\\twoLives.png");
   livesCounter[3] = loadImage("bg\\threeLives.png");
+  
+  bgs[0] = loadImage("bg\\grassBg.png");
+  bgs[1] = loadImage("bg\\lavaBg.png");
+  bgs[2] = loadImage("bg\\darkBg.png");
   
   characters[0] = loadImage("characters\\grassSlime.png");
   characters[1] = loadImage("characters\\lavaSlime.png");
@@ -106,6 +110,15 @@ void setup() {
   colour1[0] = color(14, 53, 50);
   colour2[0] = color(56, 184, 125);
   colour3[0] = color(35, 170, 155);
+  
+  colour1[1] = color(14, 53, 50);
+  colour2[1] = color(56, 184, 125);
+  colour3[1] = color(35, 170, 155);
+  
+  colour1[2] = color(14, 53, 50);
+  colour2[2] = color(56, 184, 125);
+  colour3[2] = color(35, 170, 155);
+  
   
   selectedImage = mario;
   imageMode(CENTER);

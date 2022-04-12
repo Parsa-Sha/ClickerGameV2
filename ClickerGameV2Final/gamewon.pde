@@ -1,6 +1,6 @@
 void gamewon() {
   theme.pause();
-  background(0, 255, 0);
+  image(bgs[selectedTheme], width/2, height/2);
   textAlign(CENTER, CENTER);
   text("SECRET VICTORY!", width/2, height/2);
   

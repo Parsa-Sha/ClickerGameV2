@@ -7,7 +7,7 @@ class Target {
   float clickCooldown;
 
   Target() {
-    size = 300;
+    size = 256;
     pos = new PVector(width/2, height/2);
     vel = new PVector(random(-3.5, 3.5), random(-3.5, 3.5));
     lives = 1;
@@ -27,7 +27,7 @@ class Target {
     stroke(200);
     fill(0);
     //ellipse(pos.x, pos.y, size, size);
-    image(characters[0], pos.x, pos.y, size, size);
+    image(characters[selectedTheme], pos.x, pos.y, size, size);
   }
 
   void act() {

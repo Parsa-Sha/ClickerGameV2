@@ -4,8 +4,8 @@ void game() {
   introTheme.pause();
   introTheme.rewind();
   theme.play();
-  background(39, 108, 111);
-
+  image(bgs[selectedTheme], width/2, height/2);
+  
   int i = 0;
   while (i < myTargets.size()) {
     Target myObj = myTargets.get(i);

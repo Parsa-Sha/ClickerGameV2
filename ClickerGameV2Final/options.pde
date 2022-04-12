@@ -2,7 +2,7 @@ int sliderHover, backHover, linkHover, marioHover, linkSelection;
 int marioSelection = 255;
 
 void options() {
-  background(39, 108, 111);
+  image(bgs[selectedTheme], width/2, height/2);
   fill(156, 162, 30);
   stroke(211, 83, 12);
   sliderHover = 1;
@@ -42,8 +42,8 @@ void options() {
     linkHover = 100;
   }
 
-  image(mario, width/4, height/4, 200, 200);
-  image(link, width/4*3, height/4, 200, 200);
+  //image(mario, width/4, height/4, 200, 200);
+  //image(link, width/4*3, height/4, 200, 200);
 
   noStroke();
   fill(120, marioHover);
